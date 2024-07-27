@@ -52,28 +52,3 @@ The Book Recommendation System is a web application designed to help users disco
 3. Click the "Get Recommendations" button.
 4. View the recommended books displayed on the page.
 
-## Project Structure
-
-├── static/
-│ ├── styles.css
-│ ├── images/
-│ ├── 11.webp
-│ ├── to.jpg
-│ ├── 19.jpg
-│ ├── pri.jpg
-│ ├── ca.jpg
-│ ├── hun.jpg
-│ ├── t.webp
-│ ├── pon.jpg
-│ ├── siva.webp
-│ ├── kalki.webp
-│ ├── Rk.webp
-│ ├── rama.webp
-│ ├── alai.webp
-│ ├── sila.webp
-│ ├── pavi.webp
-│ ├── vis.webp
-├── templates/
-│ ├── index.html
-├── app.py
-├── README.md
