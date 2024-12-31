@@ -1,0 +1,97 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    background-color: #ff008c;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.site-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.site-header p {
+    font-size: 1.2em;
+}
+
+.header-buttons {
+    display: flex;
+}
+
+.header-buttons .btn {
+    font-size: 1em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input {
+    height: 45px;
+    font-size: 1em;
+}
+
+.btn-primary {
+    background-color: #ff0080;
+    border-color: #ff00c8;
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+
+#bookList {
+    margin-top: 30px;
+}
+
+.book {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.book:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book img {
+    max-height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.site-footer {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}

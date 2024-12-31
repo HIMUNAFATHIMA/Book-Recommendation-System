@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Book Recommendation System</h1>
+            <p>Find your next favorite book by entering a title or author.</p>
+        </div>
+        <form id="recommendForm">
+            <div class="form-group">
+                <input type="text" class="form-control" id="titleInput" name="title" placeholder="Enter title">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="authorInput" name="author" placeholder="Enter author">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+        </form>
+
+        <div id="bookList" class="mt-4 row">
+            <!-- Recommended books will be displayed here -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#recommendForm').submit(function(event) {
+                event.preventDefault();
+
+                var title = $('#titleInput').val().trim();
+                var author = $('#authorInput').val().trim();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/recommend',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ title: title, author: author }),
+                    success: function(response) {
+                        displayBooks(response);
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                    }
+                });
+            });
+
+            function displayBooks(books) {
+                var bookList = $('#bookList');
+                bookList.empty();
+
+                if (books.length === 0) {
+                    bookList.append('<p class="col-12 text-center">No books found for the given title and/or author.</p>');
+                } else {
+                    books.forEach(function(book) {
+                        var bookItem = `
+                            <div class="col-md-4">
+                                <div class="book">
+                                    <img src="static/${book.image}" alt="${book.title}" class="img-fluid">
+                                    <div class="book-info">
+                                        <h3>${book.title}</h3>
+                                        <p>by ${book.author}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+                        bookList.append(bookItem);
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
